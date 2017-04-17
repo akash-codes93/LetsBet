@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'Dashboard/index.css'%}">
+<body>
+<h1 class="index-h1">Lets Bet: The Season of IPL</h1>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+            <li data-target="#myCarousel" data-slide-to="7"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <figure class="img-rcb gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-dd gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-kkr gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-kxip gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-rps gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-srh gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-mi gallery-img"></figure>
+            </div>
+
+            <div class="item">
+              <figure class="img-gl gallery-img"></figure>
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+      </div>
+<!-- <h2>Longest Dick</h2> -->
+<h2 class="status-heading">Player Status</h2>
+<div class="status-info">
+    <p>Akash:  {{player_status.akash}}</p>
+    <p>Ayush:  {{player_status.ayush}}</p>
+    <p>Ronak:  {{player_status.ronak}}</p>
+    <p>Raghav: {{player_status.raghav}}</p>
+    <p>House:  {{player_status.house}}</p>
+    <p>Date: {{player_status.date}}</p>
+</div>
+
+<h3>Match Wise Stripping</h3>
+<div class="full-status">{% for status in all_match_status %}
+        <ul>
+        <h4>Match Number: &nbsp; {{status.match_number}}</h4>
+        <h4>Match Teams:  &nbsp; {{status.match_teams}}</h4>
+        <li>Akash Players: &nbsp; {{status.akash}}</li>
+        <li>Ayush Players:  &nbsp; {{status.ayush}}</li>
+        <li>Ronak Players:  &nbsp; {{status.ronak}}</li>
+        <li>Raghav Players:  &nbsp; {{status.raghav}}</li>
+        <li>Date Created:  &nbsp; {{status.date}}</li>
+        <li><a href="{% url 'Dashboard:calculate_match' status.match_number %}">Calculate Match</a></li>
+        </ul>
+    {% endfor%}
+</div>
+<a href="{% url 'Dashboard:create_match' %}">
+    <button type="button" class="index">Start a Bet</button>
+</a>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bet Calculation</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Dashboard/calculate.css'%}">
+</head>
+<body>
+    <h1 class="calc-h1">Lets Bet: Calculation Arena</h1>
+    <h2 class="match-num">Match Number: {{match_number}} </h2>
+    {% if is_cal == "False" %}
+
+    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+            <p class="msg">
+                {% for message in messages %}
+                    <b><i>*{{ message }}</i></b>
+                {% endfor %}
+            </p>
+        {% endif %}
+        <div class="data-container container">
+             <div class="col-lg-3 col-md-6 col-sm-6 group">
+                <p><b>Player Name: {{total_list.0.player_name}}</b></p>
+                <p><label for="batsman_11">{{total_list.0.1}} runs : </label><input name="batsman_11" value="" id="batsman_11"></p>
+                <p><label for="batsman_21">{{total_list.0.2}} runs : </label><input name="batsman_21" value="" id="batsman_21"></p>
+                <p><label for="all_rounder1_r">{{total_list.0.3}} runs: </label><input name="all_rounder1_r" value="" id="all_rounder1_r"></p>
+                <p><label for="all_rounder1_w">{{total_list.0.3}} wicket: </label><input name="all_rounder1_w" value="" id="all_rounder1_w"></p>
+                <p><label for="bowler_11">{{total_list.0.4}} wicket: </label><input name="bowler_11" value="" id="bowler_11"></p>
+                <p><label for="bowler_21">{{total_list.0.5}} wicket: </label><input name="bowler_21" value="" id="bowler_21"></p>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 group">
+                <p><b>Player Name: {{total_list.1.player_name}}</b></p>
+                <p><label for="batsman_12">{{total_list.1.1}} runs: </label><input name="batsman_12" value="" id="batsman_12"></p>
+                <p><label for="batsman_22">{{total_list.1.2}} runs: </label><input name="batsman_22" value="" id="batsman_22"></p>
+                <p><label for="all_rounder2_r">{{total_list.1.3}} runs: </label><input name="all_rounder2_r" value="" id="all_rounder2_r"></p>
+                <p><label for="all_rounder2_w">{{total_list.1.3}} wicket: </label><input name="all_rounder2_w" value="" id="all_rounder2_w"></p>
+                <p><label for="bowler_12">{{total_list.1.4}} wicket: </label><input name="bowler_12" value="" id="bowler_12"></p>
+                <p><label for="bowler_22">{{total_list.1.5}} wicket: </label><input name="bowler_22" value="" id="bowler_22"></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 group">
+
+                <p><b>Player Name: {{total_list.2.player_name}}</b></p>
+                <p><label for="batsman_13">{{total_list.2.1}} runs: </label><input name="batsman_13" value="" id="batsman_13"></p>
+                <p><label for="batsman_23">{{total_list.2.2}} runs: </label><input name="batsman_23" value="" id="batsman_23"></p>
+                <p><label for="all_rounder3_r">{{total_list.2.3}} runs: </label><input name="all_rounder3_r" value="" id="all_rounder3_r"></p>
+                <p><label for="all_rounder3_w">{{total_list.2.3}} wicket: </label><input name="all_rounder3_w" value="" id="all_rounder3_w"></p>
+                <p><label for="bowler_13">{{total_list.2.4}} wicket: </label><input name="bowler_13" value="" id="bowler_13"></p>
+                <p><label for="bowler_23">{{total_list.2.5}} wicket: </label><input name="bowler_23" value="" id="bowler_23"></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 group">
+                <p><b>Player Name: {{total_list.3.player_name}}</b></p>
+                <p><label for="batsman_14">{{total_list.3.1}} runs: </label><input name="batsman_14" value="" id="batsman_14"></p>
+                <p><label for="batsman_24">{{total_list.3.2}} runs: </label><input name="batsman_24" value="" id="batsman_24"></p>
+                <p><label for="all_rounder4_r">{{total_list.3.3}} runs: </label><input name="all_rounder4_r" value="" id="all_rounder4_r"></p>
+                <p><label for="all_rounder4_w">{{total_list.3.3}} wicket: </label><input name="all_rounder4_w" value="" id="all_rounder4_w"></p>
+                <p><label for="bowler_14">{{total_list.3.4}} wicket: </label><input name="bowler_14" value="" id="bowler_14"></p>
+                <p><label for="bowler_24">{{total_list.3.5}} wicket: </label><input name="bowler_24" value="" id="bowler_24"></p>
+            </div>
+        </div>
+
+        <input name="match_number" value="{{match_number}}" type="hidden">
+        <input name="is_cal" value="{{is_cal}}" type="hidden">
+        <button class="submit-btn">Submit</button>
+    </form>
+
+
+{% else %}
+    *bet has been calculated
+    <a href="{% url 'Dashboard:index' %}">
+        <button type="button" class="calc-btn">Back to index</button>
+    </a>
+{% endif %}
+
+</body>
+</html>

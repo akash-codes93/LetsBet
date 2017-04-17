@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Bet</title>
+</head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'Dashboard/create.css'%}">
+<body>
+
+  <h1 class="create-h1">Room-303</h1>
+
+  <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+        <div class="match-info row col-md-12 col-sm-12">
+          {% csrf_token %}
+            {% if messages %}
+                <p>
+                    {% for message in messages %}
+                        <b><i>*{{ message }}</i></b>
+                    {% endfor %}
+                </p>
+            {% endif %}
+          <div class="row">
+            <label for="matchNumber">Match Number :</label>
+            <input id="matchNumber" type="text" name="match_number" value="" maxlength="100" placeholder="Eg. 22" />
+          </div>
+          <div class="row select-teams">Select Teams:
+            <select name="team_1">
+              <option value="RCB">RCB</option>
+              <option value="MI">MI</option>
+              <option value="SRH">SRH</option>
+              <option value="KXIP">KXIP</option>
+              <option value="DD">DD</option>
+              <option value="PSG">PSG</option>
+              <option value="GL">GL</option>
+              <option value="KKR">KKR</option>
+            </select>&nbsp;&nbsp; vs &nbsp;&nbsp;
+            <select name="team_2">
+             <option value="RCB">RCB</option>
+              <option value="MI">MI</option>
+              <option value="SRH">SRH</option>
+              <option value="KXIP">KXIP</option>
+              <option value="DD">DD</option>
+              <option value="PSG">PSG</option>
+              <option value="GL">GL</option>
+              <option value="KKR">KKR</option>
+            </select>
+          </div>
+        </div>
+        <div class="data col-sm-12 col-md-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Batsman 1</th>
+                <th>Batsman 2</th>
+                <th>All rounder</th>
+                <th>Bowler 1</th>
+                <th>Bowler 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Akash</td>
+                <td><input type="text" name="batsman_11" value="" maxlength="100" placeholder="Sachin"  /></td>
+                <td><input type="text" name="batsman_21" value="" maxlength="100" placeholder="Sehwag" /></td>
+                <td><input type="text" name="all_rounder1" value="" maxlength="100" placeholder="Irfan" /></td>
+                <td><input type="text" name="bowler_11" value="" maxlength="100" placeholder="Nehra" /></td>
+                <td><input type="text" name="bowler_21" value="" maxlength="100" placeholder="Goni" /></td>
+              </tr>
+              <tr>
+                <td>Ayush</td>
+                <td><input type="text" name="batsman_12" value="" maxlength="100" placeholder="Sachin" /></td>
+                <td><input type="text" name="batsman_22" value="" maxlength="100" placeholder="Sehwag" /></td>
+                <td><input type="text" name="all_rounder2" value="" maxlength="100" placeholder="Irfan" /></td>
+                <td><input type="text" name="bowler_12" value="" maxlength="100" placeholder="Nehra" /></td>
+                <td><input type="text" name="bowler_22" value="" maxlength="100" placeholder="Goni" /></td>
+              </tr>
+              <tr>
+                <td>Ronak</td>
+                <td><input type="text" name="batsman_13" value="" maxlength="100" placeholder="Sachin" /></td>
+                <td><input type="text" name="batsman_23" value="" maxlength="100" placeholder="Sehwag" /></td>
+                <td><input type="text" name="all_rounder3" value="" maxlength="100" placeholder="Irfan" /></td>
+                <td><input type="text" name="bowler_13" value="" maxlength="100" placeholder="Nehra" /></td>
+                <td><input type="text" name="bowler_23" value="" maxlength="100" placeholder="Goni" /></td>
+              </tr>
+              <tr>
+                <td>Raghav</td>
+                <td><input type="text" name="batsman_14" value="" maxlength="100" placeholder="Sachin" /></td>
+                <td><input type="text" name="batsman_24" value="" maxlength="100" placeholder="Sehwag" /></td>
+                <td><input type="text" name="all_rounder4" value="" maxlength="100" placeholder="Irfan" /></td>
+                <td><input type="text" name="bowler_14" value="" maxlength="100" placeholder="Nehra" /></td>
+                <td><input type="text" name="bowler_24" value="" maxlength="100" placeholder="Goni" /></td>
+              </tr>
+            </tbody>
+        </table>
+        </div>
+        <br>
+        <br>
+
+        <button class="create">Submit</button>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+body{
+	letter-spacing: 1px;
+}
+.create-h1{
+	text-align: center;
+	padding: 50px 0;
+	margin: 0;
+	font-size: 48px;
+}
+input, select{
+	border: none;
+	outline: none;
+	border-bottom: 2px solid black;
+	margin-left: 10px;
+}
+label{
+	font-weight: normal;
+}
+.match-info{
+	text-align: center;
+	font-size: 26px;
+	font-weight: normal;
+	padding-bottom: 50px;
+}
+.select-teams{
+	font-size: 26px;
+}
+.match-info select{
+	width: 10%;
+}
+.match-info .row{
+	padding: 15px 0;
+}
+button.create{
+	display: block;
+	margin: 0 auto;
+	border: none;
+	padding: 12px 80px;
+	background-color: #2f2f2f;
+	border: 2px solid #2f2f2f;
+	color: white;
+	font-size: 16px;
+	margin-bottom: 40px;
+}
+button.create:hover {
+	background-color: white;
+	border: 2px solid #2f2f2f;
+	color: black;
+}
+
+.table{
+	margin-bottom: 50px;
+}
+thead{
+	font-size: 24px;
+}
+tbody{
+	font-size: 16px;
+}
+.data{
+	overflow-x: auto;
+}
